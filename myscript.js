@@ -1,14 +1,15 @@
+const precioBase = 200;
+
 function calcularTotal(){
-    let cant = document.getElementById("cant").value;
+    var cant = document.getElementById("cant").value;
     if (cant == ""){
-        borrar();
         return
-    } /* Si no se ingresa cantidad no hace modificaciones */
+    } /* Si no se ingresa cantidad no hace modificaciones en el total */
     cant = parseInt(cant);
 
-    let tipo = document.getElementById("sel1").value;
+    var tipo = document.getElementById("categoria").value;
 
-    let total = cant * 200;
+    var total = cant * precioBase;
 
     switch (tipo) {
         case "Estudiante":
@@ -22,10 +23,5 @@ function calcularTotal(){
             break;
     }
 
-    document.getElementById("textoTotal").innerHTML = total;
-}
-
-function borrar(){
-    document.getElementById("textoTotal").innerHTML = "";
-    document.getElementById("cant").innerHTML = "0"; //no funca
+    document.getElementById("textoTotal").value= 'Total a pagar: $'+total;
 }
